@@ -1,1 +1,1 @@
-Hello There how is it going?
+Hello There how r u?
