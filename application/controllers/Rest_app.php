@@ -1,7 +1,7 @@
 <?php
 require(APPPATH.'/libraries/REST_Controller.php');
 
-class Rest_api extends REST_Controller
+class Rest_app extends REST_Controller
 {
     function index()
     {
