@@ -8,7 +8,7 @@ class Rest_app extends REST_Controller {
         $this->response(array('name' => 'magi'));
     }
 
-    function user() {
+    function user_get() {
         if (!$this->get('id')) {
             $this->response(NULL, 400);
         }
