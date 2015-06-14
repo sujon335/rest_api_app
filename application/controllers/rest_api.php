@@ -3,7 +3,11 @@ require(APPPATH.'/libraries/REST_Controller.php');
 
 class Rest_api extends REST_Controller
 {
-    function user_get()
+    function index()
+    {
+        $this->response(array('name'=>'magi'));
+    }
+    function user()
     {
         if(!$this->get('id'))
         {
