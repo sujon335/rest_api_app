@@ -1,8 +1,6 @@
 <?php
 
-require(APPPATH . '/libraries/REST_Controller.php');
-
-class Greetings extends REST_Controller {
+class Greetings extends CI_Controller {
 
     function index() {
         if (($_GET['q'])) {
