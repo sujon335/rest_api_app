@@ -15,7 +15,7 @@ class Greetings extends CI_Controller {
                 $data['status'] = 'Invalid Question';
             }
             $result = json_encode($data);
-            echo result;
+            echo $result;
         } else {
             echo "please provide question";
         }
