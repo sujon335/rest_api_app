@@ -4,21 +4,23 @@ require(APPPATH . '/libraries/REST_Controller.php');
 
 class Greetings extends REST_Controller {
 
-    function answer_get() {
-        $data = array();
-        if (!$this->get('q')) {
-            $this->response(NULL, 400);
-        }
+    function index() {
+        if (($_GET['q'])) {
 
-        $q =urldecode($this->get('q'));
+            $data = array();
+            $q = $_GET['q'];
 
-        if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello') !== false) || (strpos($q, 'Good morning!') !== false)||(strpos($q, 'Good evening!') !== false)||(strpos($q, 'Good night!') !== false)) {
+            if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello') !== false) || (strpos($q, 'Good morning!') !== false) || (strpos($q, 'Good evening!') !== false) || (strpos($q, 'Good night!') !== false)) {
 
-            $data['status'] = 'Hello, Kitty! I am busy with screening test';
+                $data['status'] = 'Hello, Kitty! I am busy with screening test';
+            } else {
+                $data['status'] = 'Invalid Question';
+            }
+            $result = json_encode($data);
+            echo result;
         } else {
-            $data['status'] = 'Invalid Question';
+            echo "please provide question";
         }
-        $this->response($data);
     }
 
 }
