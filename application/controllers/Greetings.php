@@ -10,9 +10,9 @@ class Greetings extends REST_Controller {
             $this->response(NULL, 400);
         }
 
-        $q = urldecode($this->get('q'));
+        $q =rawurldecode($this->get('q'));
 
-        if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello!') !== false) || (strpos($q, 'Good morning!') !== false)||(strpos($q, 'Good evening!') !== false)||(strpos($q, 'Good night!') !== false)) {
+        if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello') !== false) || (strpos($q, 'Good morning!') !== false)||(strpos($q, 'Good evening!') !== false)||(strpos($q, 'Good night!') !== false)) {
 
             $data['status'] = 'Hello, Kitty! I am busy with screening test';
         } else {
