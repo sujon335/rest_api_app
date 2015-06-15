@@ -2,7 +2,7 @@
 
 require(APPPATH . '/libraries/REST_Controller.php');
 
-class Rest_app extends REST_Controller {
+class Greetings extends REST_Controller {
 
     function answer_get() {
         $data = array();
