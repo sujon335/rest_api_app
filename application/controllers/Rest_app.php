@@ -32,9 +32,9 @@ class Rest_app extends REST_Controller {
         }
         
        $id=$this->get('id');
-          $f_name=$this->get('firstname');
-          $l_name= $this->get('lastname');
-          $title= $this->get('title');
+          $f_name=urldecode($this->get('firstname'));
+          $l_name=urldecode($this->get('lastname'));
+          $title= urldecode($this->get('title'));
           $em_data=array(
               'first_name'=>$f_name,
               'last_name'=>$l_name,
