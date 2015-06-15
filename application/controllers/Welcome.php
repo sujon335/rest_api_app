@@ -11,6 +11,9 @@ class Welcome extends CI_Controller {
 		$query=$this->db->get('employees');
 		foreach($query->result() as $row )
 		{
+
+                        echo $row->employee_id;
+                        echo " ";
 			echo $row->first_name;
 			echo " ";
 		}
