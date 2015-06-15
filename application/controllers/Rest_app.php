@@ -24,6 +24,32 @@ class Rest_app extends REST_Controller {
         }
         $this->response($data);
     }
+   function user_post()
+    {
+        if (!$this->get('id')) {
+            $this->response(NULL, 400);
+        }
+        
+       $id=$this->get('id');
+          $f_name=$this->get('firstname');
+          $l_name= $this->get('lastname');
 
+          $em_data=array(
+              'first_name'=>$f_name,
+              'last_name'=>$l_name
+          );
+
+        $this->db->where('employee_id', $this->get('id'));
+        $q = $this->db->update('employees',$em_data);
+        $data = array();
+        if ($q) {
+            $data['status'] = 'success';
+        } else {
+            $data['status'] = 'failed';
+        }
+        $this->response($data);
+
+    }
+	
 }
 
