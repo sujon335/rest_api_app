@@ -17,6 +17,6 @@ class Welcome extends CI_Controller {
 			echo $row->first_name;
 			echo " ";
 		}
-		//$this->load->view('welcome_message');
+		$this->load->view('welcome_message');
 	}
 }

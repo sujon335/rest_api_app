@@ -5,6 +5,8 @@ class Weather extends CI_Controller {
     function index() {
 
         echo "hello";
+
+        
 //        if (($_GET['q'])) {
 //
 //            $data = array();
