@@ -10,14 +10,14 @@ class Greetings extends CI_Controller {
 
             if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello') !== false) || (strpos($q, 'Good morning!') !== false) || (strpos($q, 'Good evening!') !== false) || (strpos($q, 'Good night!') !== false)) {
 
-                $data['status'] = 'Hello, Kitty! I am busy with screening test';
+                $data['answer'] = 'Hello, Kitty! I am busy with screening test';
             } else {
-                $data['status'] = 'Invalid Question';
+                $data['answer'] = 'Invalid Question';
             }
             $result = json_encode($data);
             echo $result;
         } else {
-            echo "please provide question";
+            echo show_404();
         }
     }
 
