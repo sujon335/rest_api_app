@@ -4,10 +4,7 @@ require(APPPATH . '/libraries/REST_Controller.php');
 
 class Rest_app extends REST_Controller {
 
-    function index() {
-        $this->response(array('name' => 'magi'));
-    }
-
+ 
     function user_get() {
         if (!$this->get('id')) {
             $this->response(NULL, 400);

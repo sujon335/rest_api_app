@@ -8,9 +8,9 @@ class Greetings extends CI_Controller {
             $data = array();
             $q = $_GET['q'];
 
-            if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello') !== false) || (strpos($q, 'Good morning!') !== false) || (strpos($q, 'Good evening!') !== false) || (strpos($q, 'Good night!') !== false)) {
+            if ((strpos($q, 'Hi!') !== false) || (strpos($q, 'Hello!') !== false) || (strpos($q, 'Good morning!') !== false) || (strpos($q, 'Good evening!') !== false) || (strpos($q, 'Good night!') !== false)) {
 
-                $data['answer'] = 'Hello, Kitty! I am busy with screening test';
+                $data['answer'] = 'Hello, Kitty! You are so preety';
             } else {
                 $data['answer'] = 'Invalid Question';
             }
