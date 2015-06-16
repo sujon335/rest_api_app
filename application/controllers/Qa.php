@@ -25,6 +25,10 @@ class Qa extends CI_Controller {
 
             $a = "xml:lang";
 
+            if(sizeof($array)==0)
+            {
+                   $da['answer']="jon snow";
+            }
 
             for ($i = 0; $i < sizeof($array); $i++) {
                 $temp = $array["$i"]->$xxx->$a;
