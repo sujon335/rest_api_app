@@ -7,9 +7,10 @@ class Weather extends CI_Controller {
 
             $data = array();
             $q = $_GET['q'];
-
             
-            $city = 'chittagong';
+            $lastSpace = strrpos($q," ");
+            echo $lastSpace;
+            $city=substr($q,$lastSpace, strpos($q, '?'));
 
             $ww = json_decode(
                             file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city")
@@ -22,6 +23,7 @@ class Weather extends CI_Controller {
                         foreach ($value as $k => $v) {
                             if ($k == "humidity")
                                 $data['answer'] = $v;
+                            break;
                         }
                     }
                 }
@@ -32,6 +34,7 @@ class Weather extends CI_Controller {
                             if ($k == "temp") {
                                 $t = $v . " k";
                                 $data['answer'] = $t;
+                                break;
                             }
                         }
                     }
@@ -40,12 +43,14 @@ class Weather extends CI_Controller {
                 foreach ($ww as $key => $value) {
                     if ($key == "rain") {
                         $data['answer'] = "Yes";
+                        break;
                     }
                 }
             } else if ((strpos($q, 'Clouds') !== false)) {
                 foreach ($ww as $key => $value) {
                     if ($key == "clouds") {
                         $data['answer'] = "yes";
+                        break;
                     }
                 }
             } else if ((strpos($q, 'Clear') !== false)) {
