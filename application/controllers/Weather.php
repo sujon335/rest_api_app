@@ -8,7 +8,8 @@ class Weather extends CI_Controller {
             $data = array();
             $q = $_GET['q'];
             
-            $lastSpace = strrpos($q," ");
+            $lastSpace = strrpos($q,"in");
+            $lastSpace=$lastSpace+2;
             $city=substr($q,$lastSpace, strpos($q, '?'));
 
             $ww = json_decode(
