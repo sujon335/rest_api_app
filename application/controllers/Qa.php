@@ -34,7 +34,10 @@ class Qa extends CI_Controller {
             for ($i = 0; $i < sizeof($array); $i++) {
                 $temp = $array["$i"]->$xxx->$a;
                 if ($temp == "en")
+                {
                     $da['answer']=$array["$i"]->$xxx->value;
+                    break;
+                }
                 
             }
             echo json_encode($da);
