@@ -28,7 +28,7 @@ class Qa extends CI_Controller {
             if(sizeof($array)==0)
             {
                 header('Content-Type: application/json');
-                echo '{"answer":"Your majesty! Jon Snow knows nothing! So do I!"}';
+                echo '{"answer":"Your majesty! Jon Snow knows nothing! So do I!"}';
                 //$da['answer']='Your majesty! Jon Snow knows nothing! So do I!';
                 return;
             }
