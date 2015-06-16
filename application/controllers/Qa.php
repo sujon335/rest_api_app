@@ -41,7 +41,8 @@ class Qa extends CI_Controller {
                 }
                 
             }
-            echo json_encode($da);
+            $result=json_encode($da);
+            echo $result;
         }
         else {
             echo show_404();
