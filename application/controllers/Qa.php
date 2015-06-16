@@ -5,7 +5,7 @@ class Qa extends CI_Controller {
     function index() {
         if (isset($_GET['q'])) {
 
-            $data = array();
+            $da= array();
             $q = $_GET['q'];
             $question = urlencode($q);
             $data = json_decode(file_get_contents("http://quepy.machinalis.com/engine/get_query?question=$question"));
@@ -29,9 +29,10 @@ class Qa extends CI_Controller {
             for ($i = 0; $i < sizeof($array); $i++) {
                 $temp = $array["$i"]->$xxx->$a;
                 if ($temp == "en")
-                    echo $array["$i"]->$xxx->value;
-                echo "  ";
+                    $da['answer']=$array["$i"]->$xxx->value;
+                
             }
+            echo json_encode($da);
         }
         else {
             echo show_404();
