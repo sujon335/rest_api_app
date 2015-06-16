@@ -42,6 +42,7 @@ class Weather extends CI_Controller {
                 }
             } else if ((strpos($q, 'Rain') !== false)) {
                 foreach ($ww as $key => $value) {
+                    $data['answer'] = "No";
                     if ($key == "rain") {
                         $data['answer'] = "Yes";
                         break;
@@ -50,16 +51,41 @@ class Weather extends CI_Controller {
             } else if ((strpos($q, 'Clouds') !== false)) {
                 foreach ($ww as $key => $value) {
                     if ($key == "clouds") {
-                        $data['answer'] = "yes";
-                        break;
+                          foreach ($value as $k => $v) {
+                              if($k=="all")
+                              {
+                                  if($v==0)
+                                  {
+                                         $data['answer'] = "No";
+                                         break;
+                                  }
+                                  else
+                                  {
+                                         $data['answer'] = "Yes";
+                                         break;
+                                  }
+                              }
+                          }
                     }
                 }
             } else if ((strpos($q, 'Clear') !== false)) {
-                foreach ($ww as $key => $value) {
-                    $data['answer'] = "Yes";
+                 foreach ($ww as $key => $value) {
                     if ($key == "clouds") {
-                        $data['answer'] = "No";
-                        break;
+                          foreach ($value as $k => $v) {
+                              if($k=="all")
+                              {
+                                  if($v==0)
+                                  {
+                                         $data['answer'] = "Yes";
+                                         break;
+                                  }
+                                  else
+                                  {
+                                         $data['answer'] = "No";
+                                         break;
+                                  }
+                              }
+                          }
                     }
                 }
             } else {
