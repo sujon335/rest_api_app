@@ -3,7 +3,7 @@
 class Greetings extends CI_Controller {
 
     function index() {
-        if (($_GET['q'])) {
+        if (isset($_GET['q'])) {
 
             $data = array();
             $q = $_GET['q'];
