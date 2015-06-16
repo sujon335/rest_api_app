@@ -23,8 +23,6 @@ class Qa extends CI_Controller {
             $xxx = $data->head->vars[0];
             $array = $data->results->bindings;
 
-            $a = "xml:lang";
-
             if(sizeof($array)==0)
             {
                 header('Content-Type: application/json');
@@ -32,16 +30,29 @@ class Qa extends CI_Controller {
                 //$da['answer']='Your majesty! Jon Snow knows nothing! So do I!';
                 return;
             }
-
-            for ($i = 0; $i < sizeof($array); $i++) {
-                $temp = $array["$i"]->$xxx->$a;
-                if ($temp == "en")
-                {
-                    $da['answer']=$array["$i"]->$xxx->value;
-                    break;
-                }
-                
+            
+            $type=$data->results->bindings->$xxx->type;
+            if($type=="typed-literal")
+            {
+                $da['answer']=$array[0]->$xxx->value;
             }
+            else if($type=="literal")
+            {
+                $a = "xml:lang";
+
+
+
+                    for ($i = 0; $i < sizeof($array); $i++) {
+                        $temp = $array["$i"]->$xxx->$a;
+                        if ($temp == "en")
+                        {
+                            $da['answer']=$array["$i"]->$xxx->value;
+                            break;
+                        }
+
+                    }
+            }
+
             $result=json_encode($da);
             echo $result;
         }
