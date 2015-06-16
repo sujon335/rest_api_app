@@ -27,7 +27,8 @@ class Qa extends CI_Controller {
 
             if(sizeof($array)==0)
             {
-                   $da['answer']="Your majesty! Jon Snow knows nothing! So do I!";
+                echo '{"answer":"Your majesty! Jon Snow knows nothing! So do I!"}';
+                return;                  
             }
 
             for ($i = 0; $i < sizeof($array); $i++) {
