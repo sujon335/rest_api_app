@@ -21,7 +21,7 @@ class Weather extends CI_Controller {
             if ((strpos($q, 'humidity') !== false)) {
                 $data['answer'] = $ww->main->humidity;
             } else if ((strpos($q, 'temperature') !== false)) {
-                $data['answer'] = $ww->main->temp;
+                $data['answer'] = $ww->main->temp." K";
             } else if ((strpos($q, 'Rain') !== false)) {
                 foreach ($ww as $key => $value) {
                     $data['answer'] = "No";
