@@ -33,7 +33,7 @@ class Weather extends CI_Controller {
                     if ($key == "main") {
                         foreach ($value as $k => $v) {
                             if ($k == "temp") {
-                                $t = $v . " k";
+                                $t = $v . " K";
                                 $data['answer'] = $t;
                                 break;
                             }
@@ -43,7 +43,7 @@ class Weather extends CI_Controller {
             } else if ((strpos($q, 'Rain') !== false)) {
                 foreach ($ww as $key => $value) {
                     $data['answer'] = "No";
-                    if ($key == "rain") {
+                    if ($key == "rain"){
                         $data['answer'] = "Yes";
                         break;
                     }
