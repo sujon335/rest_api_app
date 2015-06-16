@@ -11,6 +11,7 @@ class Weather extends CI_Controller {
             $lastSpace = strrpos($q,"in");
             $lastSpace=$lastSpace+2;
             $city=substr($q,$lastSpace, strpos($q, '?'));
+            $city=trim($city,'?');
 
             $ww = json_decode(
                             file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city")
