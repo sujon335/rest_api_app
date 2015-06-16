@@ -9,7 +9,6 @@ class Weather extends CI_Controller {
             $q = $_GET['q'];
             
             $lastSpace = strrpos($q," ");
-            echo $lastSpace;
             $city=substr($q,$lastSpace, strpos($q, '?'));
 
             $ww = json_decode(
@@ -22,8 +21,10 @@ class Weather extends CI_Controller {
                     if ($key == "main") {
                         foreach ($value as $k => $v) {
                             if ($k == "humidity")
+                            {
                                 $data['answer'] = $v;
-                            break;
+                                break;
+                            }
                         }
                     }
                 }
