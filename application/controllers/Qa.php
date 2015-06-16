@@ -31,7 +31,7 @@ class Qa extends CI_Controller {
                 return;
             }
             
-            $type=$data->results->bindings->$xxx->type;
+            $type=$array[0]->$xxx->type;
             if($type=="typed-literal")
             {
                 $da['answer']=$array[0]->$xxx->value;
